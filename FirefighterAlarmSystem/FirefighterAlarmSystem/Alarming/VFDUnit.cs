@@ -11,56 +11,102 @@ namespace FirefighterAlarmSystem.Alarming
         string unitName;
         string testCode;
         string alarmCode;
+        private List<Firefighters.IFirefighter> firefighters;
+
+        //Unit states
+        AlarmState state;
+        AlarmState alarm;
+        AlarmState waiting;
+        AlarmState test;
 
         public VFDUnit(string unitName, string testCode, string alarmCode)
         {
             this.unitName = unitName;
             this.testCode = testCode;
             this.alarmCode = alarmCode;
+            firefighters = new List<Firefighters.IFirefighter>();
+            //Init states
+            alarm = new Alarm();
+            waiting = new NoProblems();
+            test = new Test();
+            //Seting default state
+            state = waiting;
+        }
+
+        public void AddFirefighterObserver(Firefighters.Firefighter firefighter)
+        {
+            //Add new firefighter observer
+            firefighters.Add(firefighter);
         }
 
 
-        public string getUnitName()
+        public string GetUnitName()
         {
             return unitName;
         }
 
-        public void setUnitName(string unitName)
+        public void SetUnitName(string unitName)
         {
             this.unitName = unitName;
         }
 
-        public string getTestCode()
+        public string GetTestCode()
         {
             return testCode;
         }
 
-        public void setTestCode(string testCode)
+        public void SetTestCode(string testCode)
         {
             this.testCode = testCode;
         }
 
-        public string getAlarmCode()
+        public string GetAlarmCode()
         {
             return alarmCode;
         }
 
-        public void setAlarmCode(string alarmCode)
+        public void SetAlarmCode(string alarmCode)
         {
             this.alarmCode = alarmCode;
         }
 
 
 
-        public ResponseCode notify(string CCIR_CODE)
+        public ResponseCode Notify(string CCIR_CODE)
         {
-            /**
-             * 
-             * TO DO
-             * 
-             */
+            
+            if(CCIR_CODE.Contains(this.alarmCode) && CCIR_CODE.Contains(this.unitName))
+            {
+                ChangeState(ref alarm);
+                StartAlarm();
+                return ResponseCode.ALARM_OK;
+            }
+            if (CCIR_CODE.Contains(this.testCode) && CCIR_CODE.Contains(this.unitName))
+            {
+                ChangeState(ref test);
+                return ResponseCode.TEST_OK;
+            }
+
+            ChangeState(ref waiting);
             return ResponseCode.ERROR;
         }
+
+        private void StartAlarm()
+        {
+            //Observer design pattern
+            foreach (Firefighters.Firefighter f in firefighters)
+            {
+                f.SendSms("Wezwanie alarmowe!");
+            }
+        }
+
+        private void ChangeState(ref AlarmState alarmState)
+        {
+            state = alarmState;
+            state.StartState();
+        }
+
+
 
     }
 }

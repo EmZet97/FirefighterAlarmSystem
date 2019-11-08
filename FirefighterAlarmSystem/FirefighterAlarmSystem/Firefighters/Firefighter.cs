@@ -19,38 +19,38 @@ namespace FirefighterAlarmSystem.Firefighters
             this.phoneNumber = phoneNumber;
         }
 
-        public string getName()
+        public string GetName()
         {
             return name;
         }
 
-        public void setName(string name)
+        public void SetName(string name)
         {
             this.name = name;
         }
 
-        public String getSurname()
+        public string GetSurname()
         {
             return surname;
         }
 
-        public void setSurname(string surname)
+        public void SetSurname(string surname)
         {
             this.surname = surname;
         }
 
-        public String getPhoneNumber()
+        public string GetPhoneNumber()
         {
             return phoneNumber;
         }
 
-        public void setPhoneNumber(string phoneNumber)
+        public void SetPhoneNumber(string phoneNumber)
         {
             this.phoneNumber = phoneNumber;
         }
 
         
-    public void sendSms(string content)
+    public void SendSms(string content)
         {
             Console.WriteLine("Wysyłam SMS do" + this.name + " " + this.surname);
         }

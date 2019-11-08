@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirefighterAlarmSystem.Alarming
+namespace FirefighterAlarmSystem.MainUnits
 {
-    interface IVFDUnit
+    class PSPUnit
     {
-        ResponseCode Notify(string CCIR_CODE);
     }
 }

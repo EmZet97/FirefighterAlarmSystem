@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace FirefighterAlarmSystem.Alarming
 {
-    interface IVFDUnit
+    interface IAlarmState
     {
-        ResponseCode Notify(string CCIR_CODE);
+        void StartState();
     }
 }

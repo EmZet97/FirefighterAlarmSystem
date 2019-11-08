@@ -1,0 +1,7 @@
+D:\GitHub\FirefighterAlarmSystem\FirefighterAlarmSystem\FirefighterAlarmSystem\bin\Debug\FirefighterAlarmSystem.exe.config
+D:\GitHub\FirefighterAlarmSystem\FirefighterAlarmSystem\FirefighterAlarmSystem\bin\Debug\FirefighterAlarmSystem.exe
+D:\GitHub\FirefighterAlarmSystem\FirefighterAlarmSystem\FirefighterAlarmSystem\bin\Debug\FirefighterAlarmSystem.pdb
+D:\GitHub\FirefighterAlarmSystem\FirefighterAlarmSystem\FirefighterAlarmSystem\obj\Debug\FirefighterAlarmSystem.csprojAssemblyReference.cache
+D:\GitHub\FirefighterAlarmSystem\FirefighterAlarmSystem\FirefighterAlarmSystem\obj\Debug\FirefighterAlarmSystem.csproj.CoreCompileInputs.cache
+D:\GitHub\FirefighterAlarmSystem\FirefighterAlarmSystem\FirefighterAlarmSystem\obj\Debug\FirefighterAlarmSystem.exe
+D:\GitHub\FirefighterAlarmSystem\FirefighterAlarmSystem\FirefighterAlarmSystem\obj\Debug\FirefighterAlarmSystem.pdb

@@ -8,6 +8,6 @@ namespace FirefighterAlarmSystem.Firefighters
 {
     interface IFirefighter
     {
-        void sendSms(string content);
+        void SendSms(string content);
     }
 }
