@@ -43,11 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alarming\Alarm.cs" />
+    <Compile Include="Alarming\IAlarmState.cs" />
     <Compile Include="Alarming\IVFDUnit.cs" />
+    <Compile Include="Alarming\NoProblems.cs" />
     <Compile Include="Alarming\ResponseCode.cs" />
+    <Compile Include="Alarming\Test.cs" />
     <Compile Include="Alarming\VFDUnit.cs" />
     <Compile Include="Firefighters\Firefighter.cs" />
     <Compile Include="Firefighters\IFirefighter.cs" />
+    <Compile Include="MainUnits\AllUnitsStrategy.cs" />
+    <Compile Include="MainUnits\Call.cs" />
+    <Compile Include="MainUnits\ICallStrategy.cs" />
+    <Compile Include="MainUnits\OneUnitStrategy.cs" />
+    <Compile Include="MainUnits\PSPUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

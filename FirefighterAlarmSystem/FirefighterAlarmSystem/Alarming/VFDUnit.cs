@@ -14,10 +14,10 @@ namespace FirefighterAlarmSystem.Alarming
         private List<Firefighters.IFirefighter> firefighters;
 
         //Unit states
-        AlarmState state;
-        AlarmState alarm;
-        AlarmState waiting;
-        AlarmState test;
+        IAlarmState state;
+        IAlarmState alarm;
+        IAlarmState waiting;
+        IAlarmState test;
 
         public VFDUnit(string unitName, string testCode, string alarmCode)
         {
@@ -33,14 +33,14 @@ namespace FirefighterAlarmSystem.Alarming
             state = waiting;
         }
 
-        public void AddFirefighterObserver(Firefighters.Firefighter firefighter)
+        public void AddFirefighterObserver(ref Firefighters.Firefighter firefighter)
         {
             //Add new firefighter observer
             firefighters.Add(firefighter);
         }
 
 
-        public string GetUnitName()
+        public string GetUnitName() 
         {
             return unitName;
         }
@@ -74,20 +74,23 @@ namespace FirefighterAlarmSystem.Alarming
 
         public ResponseCode Notify(string CCIR_CODE)
         {
-            
+            Console.WriteLine(unitName + " otrzymuje komunikat: " + CCIR_CODE);   
             if(CCIR_CODE.Contains(this.alarmCode) && CCIR_CODE.Contains(this.unitName))
             {
+                Console.WriteLine("Komunikat wzywa naszą jednostkę alarmowo");
                 ChangeState(ref alarm);
                 StartAlarm();
                 return ResponseCode.ALARM_OK;
             }
             if (CCIR_CODE.Contains(this.testCode) && CCIR_CODE.Contains(this.unitName))
             {
+                Console.WriteLine("Komunikat wzywa naszą jednostkę testowo");
                 ChangeState(ref test);
                 return ResponseCode.TEST_OK;
             }
+            Console.WriteLine("Komunikat nie dotyczy naszej jednostki");
 
-            ChangeState(ref waiting);
+            //ChangeState(ref waiting);
             return ResponseCode.ERROR;
         }
 
@@ -100,7 +103,7 @@ namespace FirefighterAlarmSystem.Alarming
             }
         }
 
-        private void ChangeState(ref AlarmState alarmState)
+        private void ChangeState(ref IAlarmState alarmState)
         {
             state = alarmState;
             state.StartState();

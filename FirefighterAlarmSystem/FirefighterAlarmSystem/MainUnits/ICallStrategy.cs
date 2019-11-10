@@ -8,6 +8,6 @@ namespace FirefighterAlarmSystem.MainUnits
 {
     interface ICallStrategy
     {
-        void StartCall(Alarming.IVFDUnit[] units);
+        void StartCall(ref List<Alarming.IVFDUnit> units, string code);
     }
 }

@@ -52,7 +52,7 @@ namespace FirefighterAlarmSystem.Firefighters
         
     public void SendSms(string content)
         {
-            Console.WriteLine("Wysyłam SMS do" + this.name + " " + this.surname);
+            Console.WriteLine("Wysyłam SMS o treści '" + content + "' do " + this.name + " " + this.surname);
         }
 
     }
